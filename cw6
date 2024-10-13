@@ -1,0 +1,81 @@
+using System;
+
+// Абстрактный класс Animal
+public abstract class Animal
+{
+    // Поля: имя и возраст
+    public string Name { get; set; } // Свойство для имени животного
+    public int Age { get; set; } // Свойство для возраста животного
+
+    // Конструктор класса Animal
+    protected Animal(string name, int age)
+    {
+        Name = name; // Инициализация имени
+        Age = age; // Инициализация возраста
+    }
+
+    // Абстрактный метод для издания звука
+    public abstract void MakeSound();
+
+    // Абстрактный метод для описания передвижения
+    public abstract void Move();
+}
+
+// Класс Dog, наследующий от Animal
+public class Dog : Animal
+{
+    // Конструктор класса Dog
+    public Dog(string name, int age) : base(name, age)
+    {
+    }
+
+    // Реализация метода MakeSound для Dog
+    public override void MakeSound()
+    {
+        Console.WriteLine("Bark"); // Вывод звука, издаваемого собакой
+    }
+
+    // Реализация метода Move для Dog
+    public override void Move()
+    {
+        Console.WriteLine("Dog is running"); // Описание передвижения собаки
+    }
+}
+
+// Класс Cat, наследующий от Animal
+public class Cat : Animal
+{
+    // Конструктор класса Cat
+    public Cat(string name, int age) : base(name, age)
+    {
+    }
+
+    // Реализация метода MakeSound для Cat
+    public override void MakeSound()
+    {
+        Console.WriteLine("Meow"); // Вывод звука, издаваемого кошкой
+    }
+
+    // Реализация метода Move для Cat
+    public override void Move()
+    {
+        Console.WriteLine("Cat is walking"); // Описание передвижения кошки
+    }
+}
+
+// Главный класс программы
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Создание объекта Dog
+        Dog dog = new Dog("Buddy", 3); // Инициализация собаки
+        dog.MakeSound(); // Вызов метода MakeSound для собаки
+        dog.Move(); // Вызов метода Move для собаки
+
+        // Создание объекта Cat
+        Cat cat = new Cat("Whiskers", 2); // Инициализация кошки
+        cat.MakeSound(); // Вызов метода MakeSound для кошки
+        cat.Move(); // Вызов метода Move для кошки
+    }
+}
